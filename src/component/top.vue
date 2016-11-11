@@ -3,7 +3,7 @@
         <el-row class="tac">
             <el-col :span="8">
                 <h3>任务看板</h3>
-                <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" theme="dark">
+                <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" theme="dark">
                     <el-submenu index="1">
                         <template slot="title"><i class="el-icon-message"></i>我的任务</template>
                         <el-menu-item-group title="分组一">

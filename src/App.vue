@@ -1,14 +1,14 @@
 <template>
-    <div id="app">
-        <el-row>
-            <el-col :span='4'>
-                <div class="grid-content bg-purple-dark"></div>
-            </el-col>
-            <el-col :span='20'>
-                <div class="grid-content bg-purple-light"></div>
-            </el-col>
-        </el-row>
-<!--        <top></top>
+    <div id="app2">
+      <el-row>
+        <el-col :span='4'>
+          <div class="grid-content bg-purple-dark"></div>
+        </el-col>
+        <el-col :span='20'>
+          <div class="grid-content bg-purple-light"></div>
+        </el-col>
+      </el-row> 
+       <top></top>
         <img src="./assets/logo.png">
         <h1>Hello App!</h1>
         <firstcomponent></firstcomponent>
@@ -21,7 +21,7 @@
             </li>
         </ul>
         <router-view class="view"></router-view>
-        <bottom></bottom>-->
+        <bottom></bottom>
     </div>
 </template>
 
@@ -61,5 +61,9 @@ body {
 }
 .bg-purple-light {
   background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
 }
 </style>

@@ -8,7 +8,7 @@
           <div class="grid-content bg-purple-light"></div>
         </el-col>
       </el-row> 
-       <top></top>
+        <header-nav></header-nav>
         <img src="./assets/logo.png">
         <h1>Hello App!</h1>
         <firstcomponent></firstcomponent>
@@ -21,22 +21,23 @@
             </li>
         </ul>
         <router-view class="view"></router-view>
-        <bottom></bottom>
+        <footer-nav></footer-nav>
     </div>
 </template>
 
 <script>
 import firstcomponent from './component/firstcomponent.vue'
 import secondcomponent from './component/secondcomponent.vue'
-import top from './component/top.vue'
-import bottom from './component/bottom.vue'
+import FooterNav from './component/footer.vue'
+import HeaderNav from './component/header.vue'
+
 export default {
   data () {
     return {
       msg: 'Hello Vue!'
     }
   },
-  components: { firstcomponent, secondcomponent,bottom,top }
+  components: { firstcomponent, secondcomponent,HeaderNav,FooterNav}
 }
 
 

@@ -1,17 +1,6 @@
 <template>
     <div id="app2">
-      <el-row>
-        <el-col :span='4'>
-          <div class="grid-content bg-purple-dark"></div>
-        </el-col>
-        <el-col :span='20'>
-          <div class="grid-content bg-purple-light"></div>
-        </el-col>
-      </el-row> 
         <header-nav></header-nav>
-        <img src="./assets/logo.png">
-        <h1>Hello App!</h1>
-        <firstcomponent></firstcomponent>
         <ul>
             <li>
                 <router-link to="/first">点我跳转到第一页</router-link>

@@ -6,16 +6,14 @@
                     <div class="secondTitle">
                         标签<span class="distance"><el-button type="primary" icon="plus">添加</el-button></span>
                     </div>
-                    <el-submenu index="1">
-                        <template slot="title">导航一</template>
-                        <el-menu-item-group title="分组一">
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                        </el-menu-item-group>
-                        <el-menu-item-group title="分组2">
-                            <el-menu-item index="1-3">选项3</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
+
+<!--                    <ul>
+                        <li v-for="(tag,index) in tags">
+                            <el-menu-item>{{index}}:{{tag.name}}</el-menu-item>
+                        </li>
+                    </ul>-->
+                    <el-menu-item v-for="(tag,index) in tags">{{tag.name}}</el-menu-item>
+                    <el-menu-item index="1">导航一</el-menu-item>
                     <el-menu-item index="2">导航二</el-menu-item>
                     <el-menu-item index="3">导航三</el-menu-item>
                 </el-menu>
@@ -26,9 +24,10 @@
 <style>
     @import '../css/style.css';
 
-    .distance{
-        padding-left: 300px;
+    .distance {
+        padding-left: 50%;
     }
+
     .sideNav {
         max-width: 600px;
     }
@@ -37,7 +36,8 @@
     export default{
         data(){
             return {
-                msg: 'hello vue'
+                msg: 'hello vue',
+                tags: [{name: '导航一'}, {name: '导航二'}]
             }
         }
     }

@@ -1,13 +1,11 @@
 <template>
-    <div>
+    <div class="container container-back">
         <el-row class="tac">
             <el-col :span="6">
                 <el-menu default-active="1" class="el-menu-vertical-demo">
-                    <div class="secondTitle">
-                        标签<span class="distance"><el-button type="primary" icon="plus" @click='add'>添加</el-button></span>
+                            标签<span class="distance"><el-button type="primary" icon="plus" @click='add'>添加</el-button></span>
                         <!-- 这样也是可以的，属性中使用@click
                             <el-button v-for="i in 2" @click='test'>添加</el-button></span>-->
-                    </div>
 <!--                    <ul>
                         <li v-for="(tag,index) in tags">
                             <el-menu-item>{{index}}:{{tag.name}}</el-menu-item>
@@ -25,14 +23,10 @@
 </template>
 <style>
     @import '../css/style.css';
-
     .distance {
-        padding-left: 50%;
+        padding-left: 45%;
     }
 
-    .sideNav {
-        max-width: 600px;
-    }
 </style>
 <script>
     export default{

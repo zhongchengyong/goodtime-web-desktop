@@ -17,6 +17,7 @@ Vue.use(VueResource);
 
 import  NotFind from './component/404.vue'
 import Note from './component/Note.vue'
+import Login from './component/Login.vue'
 
 
 // 创建一个路由器实例
@@ -32,6 +33,10 @@ const router = new VueRouter({
         {
             path: '/note',
             component: Note
+        },
+        {
+            path: '/login',
+            component: Login
         }
     ]
 })

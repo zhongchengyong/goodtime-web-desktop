@@ -26,7 +26,7 @@ body {
   opacity: 0.5;
 }
 
-#categories button {
+#task-button {
   position: absolute;
   bottom: 15px;
   right: 15px;
@@ -34,6 +34,7 @@ body {
 
 .container {
   margin: 15px;
+  width: 300px;
 }
 
 i.remove.icon {
@@ -58,13 +59,11 @@ div.content:hover i.remove.icon {
 
 #links-container {
   position: fixed;
-  top: 0;
+  top: 60px;
   left: 350px;
   right: 0;
   bottom: 0;
   overflow: auto;
-  background-color: #D4D9DA;
-  color: #5F676A;
 }
 
 #links-container .list {
@@ -99,6 +98,19 @@ i.remove.icon {
 div.content:hover i.remove.icon {
   opacity: 0.5;
 }
-.container-back{
-    background-color: darkblue;
+.firstTitle{
+    font-size: 20px;
+    text-align: center;
+}
+.secondTitle{
+    font-size: 18px;
+    margin: 10px 10px;
+}
+.middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -200px;
+    text-align: center;
 }

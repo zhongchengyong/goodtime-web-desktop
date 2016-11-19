@@ -31,7 +31,7 @@ module.exports = {
         loader: "file"
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|ico)$/,
         loader: 'file',
         query: {
           name: '[name].[ext]?[hash]'

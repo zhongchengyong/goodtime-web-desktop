@@ -9,7 +9,7 @@
         <el-input name='userName' size="large" placeholder="请输入用户名"></el-input>
         <h4 class="lables">密码</h4>
         <el-input name='password' type='password' size="large" placeholder="请输入密码"></el-input>
-        <el-button id="login" type="primary" size="large">登录</el-button>
+        <el-button id="login" type="primary" size="large" @click='getList'>登录</el-button>
     </form>
     </div>
 </div>
@@ -36,6 +36,16 @@ export default{
     data(){
         return {
 
+        }
+    },
+    methods: {
+        getList(){
+            this.$http.get('http://localhost:8082/task/todoList').then((response)=>{
+                console.log('success');
+                console.log(response.body);
+            },(response)=>{
+                console.log('error');
+            });
         }
     }
 }

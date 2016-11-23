@@ -4,12 +4,19 @@
             <h3>欢迎使用 GoodTime</h3>
         </div>
         <div>
+            <div v-show="toggleFlag">
+                <div class="el-alert el-alert--error">
+                    <div class="el-alert__content"><span class="el-alert__title is-bold">用户名或密码错误!</span>
+                    <i class="el-alert__closebtn el-icon-close" @click='toggleState(false)'></i>
+                    </div>
+                </div>
+            </div>
             <form>
                 <h4 class="lables">用户</h4>
                 <el-input v-model="userName" size="large" placeholder="请输入用户名"></el-input>
                 <h4 class="lables">密码</h4>
                 <el-input v-model="password" type='password' size="large" placeholder="请输入密码"></el-input>
-                <el-button id="login" type="primary" size="large" @click='getList'>登录</el-button>
+                <el-button id="login" type="primary" size="large" @click='login'>登录</el-button>
             </form>
         </div>
     </div>
@@ -31,6 +38,7 @@
     #login {
         margin-top: 20px;
     }
+
 </style>
 
 <script>
@@ -39,27 +47,32 @@ export default{
         return {
             userName:'1',
             password:'',
-            loginUrl:'http://localhost:8082/user/login',
+            loginUrl:'/goodtime/login',
+            toggleFlag: false,
         }
     },
     methods: {
-        getList(){
-            var vm = this;
+        login(){
+            let vm = this;
             vm.$http.post(vm.loginUrl,{userId: vm.userName,password: vm.password})
             .then((response)=>{
-                debugger;
                 if(response.body.errorCode==0){
-                    vm.$http.get('http://localhost:8082/task/todoList').then((response)=>{
-                        debugger;
-                        console.log(response.body);
-                    })
+                    window.location.href='/note';
                 }else{
-                    alert(response.body.errorMsg);
+                    vm.toggleState(true);
                 }
             },(response)=>{
-                console.log('error');
+                this.$message({
+                showClose: true,
+                message: '系统错误，请稍后再试！',
+                type: 'error'
+                });
             });
-        }
+        },
+        toggleState(flag){
+            let vm = this;
+            vm.toggleFlag = flag;
+        },
     }
 }
 </script>

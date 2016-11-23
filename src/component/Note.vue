@@ -21,8 +21,26 @@
     export default{
         data(){
             return {
-                content: 'hello vue'
+                content: 'hello vue',
+                taskUrl: '/goodtime/task',
+                task:[],
             }
+        },
+        methods: {
+            query(){
+                let vm = this;
+                vm.$http.get(vm.taskUrl)
+                .then((response)=>{
+                    vm.task=response.body.data;
+                    console.log(vm.task);
+                },(response)=>{
+                });
+            },
+        },
+        mounted(){
+            debugger;
+            let vm = this;
+            vm.query();
         },
         components: {SideNav,HeaderNav}
     }

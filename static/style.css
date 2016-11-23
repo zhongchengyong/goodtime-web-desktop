@@ -114,3 +114,6 @@ div.content:hover i.remove.icon {
     margin-top: -200px;
     text-align: center;
 }
+div .errorText{
+  color: red; 
+}

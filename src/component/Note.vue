@@ -14,9 +14,12 @@
             <div>
                 <el-dialog title="新增任务" v-model="dialogFormVisible">
                     <el-form :model="form">
-                        <el-form-item label="任务" :label-width="formLabelWidth">
-                            <el-input v-model="form.name" auto-complete="off" placeholder="请输入任务"></el-input>
-                        </el-form-item>
+                        <el-tooltip  class="item" effect="dark" content="任务不能为空，且长度不能超过20个字" placement="bottom">
+                            <el-form-item label="任务" :label-width="formLabelWidth">
+                                <el-input v-model="form.name" auto-complete="off" placeholder="请输入任务"></el-input>
+                            </el-form-item>
+                        </el-tooltip>
+                        <strong v-show="errorFlag">任务不能为空，且长度不能超过20个字</strong>
                         <el-form-item label="任务内容" :label-width="formLabelWidth">
                             <el-input type="textarea" v-model="form.content" placeholder="请输入任务内容">
                             </el-input>
@@ -37,11 +40,11 @@
         </div>
     </div>
 </template>
+
 <style>
-    .inline {
-        display: inline-block;
-    }
+
 </style>
+
 <script>
     import SideNav from './SideNav.vue'
     import HeaderNav from './Header.vue'
@@ -56,7 +59,8 @@
                     content:'',
                     taskScore:1,
                 },
-                formLabelWidth: '120px'
+                formLabelWidth: '120px',
+                errorFlag:false,
             }
         },
         methods: {
@@ -68,9 +72,17 @@
             },
             addTask(){
                 let vm = this;
+                if(!vm.valid_name()){
+                    vm.errorFlag = true;
+                    return;
+                }
                 vm.$http.post(vm.taskUrl,{taskName:vm.form.name,taskContent:vm.form.content,taskScore:vm.form.taskScore}).then((response)=>{
                     if(response.body.errorCode==0){
-                        vm.form={};
+                        vm.form={
+                            name:'',
+                            content:'',
+                            taskScore: 1,
+                        };
                         vm.$message({
                             message: '添加任务成功',
                             type: 'success',
@@ -86,6 +98,13 @@
                     }
                 });
             },
+            valid_name(){
+                var vm = this;
+                if(vm.form.name.trim() && vm.form.name.trim()<=20){
+                    return true;
+                }
+                return false;
+            }
         },
         mounted(){
             let vm = this;

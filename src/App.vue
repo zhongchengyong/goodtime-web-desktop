@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <!--<diary></diary>-->
         <div id="main">
             <router-view></router-view>
         </div>
@@ -11,6 +12,8 @@
     import FooterNav from './component/Footer.vue'
     import HeaderNav from './component/Header.vue'
     import Note from './component/Note.vue'
+    import Diary from './component/Diary.vue'
+    import DiaryDetail from './component/DiaryDetail.vue'
 
     export default {
         data () {
@@ -18,7 +21,7 @@
                 msg: 'Hello Vue!'
             }
         },
-        components: {HeaderNav, FooterNav,Note}
+        components: {HeaderNav, FooterNav,Note,Diary,DiaryDetail}
     }
 
 </script>

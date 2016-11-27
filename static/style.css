@@ -57,7 +57,7 @@ div.content:hover i.remove.icon {
   opacity: 1;
 }
 
-#links-container {
+#links-container,#diary-container {
   position: fixed;
   top: 60px;
   left: 350px;
@@ -116,4 +116,7 @@ div.content:hover i.remove.icon {
 }
 div .errorText{
   color: red; 
+}
+a{
+  text-decoration: none;
 }

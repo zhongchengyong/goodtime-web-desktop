@@ -42,7 +42,9 @@
 </template>
 
 <style>
-
+#task-button{
+    position: fixed;
+}
 </style>
 
 <script>

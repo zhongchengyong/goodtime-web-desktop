@@ -13,12 +13,22 @@ Vue.config.debug = true;
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.http.interceptors.push((request,next)=>{
+    //请求发送前
+    next((response)=>{
+        if(response.body.errorCode==401){
+            window.location.href='/login'
+        }
+        return response;
+    })
+})
 
 
-import  NotFind from './component/404.vue'
+import NotFind from './component/404.vue'
 import Note from './component/Note.vue'
 import Login from './component/Login.vue'
-
+import Diary from './component/Diary.vue'
+import DiaryDetail from './component/DiaryDetail.vue'
 
 // 创建一个路由器实例
 // 并且配置路由规则
@@ -37,7 +47,15 @@ const router = new VueRouter({
         {
             path: '/login',
             component: Login
-        }
+        },
+        {
+            path:'/diary',
+            component: Diary
+        },
+        {
+            path:'/diaryDetail',
+            component: DiaryDetail
+        },
     ]
 })
 

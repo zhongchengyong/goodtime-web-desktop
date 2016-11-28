@@ -15,7 +15,7 @@
                 <h4 class="lables">用户</h4>
                 <el-input v-model="userName" size="large" placeholder="请输入用户名"></el-input>
                 <h4 class="lables">密码</h4>
-                <el-input v-model="password" type='password' size="large" placeholder="请输入密码"></el-input>
+                <input v-model="password" type="password" placeholder="请输入密码" autocomplete="off" class="el-input__inner" @keyup.enter='login'/>
                 <el-button id="login" type="primary" size="large" @click='login'>登录</el-button>
             </form>
         </div>

@@ -44,24 +44,29 @@ import { getQueryString } from '../core/Utils';
         },
         methods:{
             saveDiary(){
-                debugger;
                 let vm = this;
                 vm.$http.patch(vm.diaryDetailUrl+vm.id,
                 {title:vm.form.title,content:vm.form.content,groupId:vm.form.groupId})
                 .then((response)=>{
+                    debugger;
+                    console.log(response.headers)
                     if(response.body.errorCode==0){
                         vm.$message({
                             message: '修改日志成功',
                             type: 'success',
                         });
                     }
-                })
+                }),(response)=>{
+                    vm.$message({
+                        message:'网络错误',
+                        type:'error',
+                    })
+                }
             },
             query(){
                 let vm = this;
                 vm.$http.get(vm.diaryDetailUrl+vm.id).then((response)=>{
                     if(response.body.errorCode==0){
-                        debugger;
                         vm.form = response.body.data;
                         vm.form.groupId = response.body.data.groupId.toString();
                     }

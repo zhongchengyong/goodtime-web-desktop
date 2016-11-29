@@ -14,10 +14,17 @@ Vue.config.debug = true;
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.http.interceptors.push((request,next)=>{
+    debugger;
+    let vue = this;
+    vue.$http.get('/goodtime/loginState').then((data)=>{
+        if(data.body.errorCode==401){
+            window.location.href='/login'
+        }
+    })
     //请求发送前
     next((response)=>{
-        if(response.body.errorCode==401){
-            window.location.href='/login'
+        if(response.body.errorCode==500){
+            alert('系统错误');
         }
         return response;
     })

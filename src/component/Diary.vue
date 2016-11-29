@@ -8,6 +8,7 @@
                     <li v-for="item in diaries.items">
                         <h3>
                         <a :href="'/diaryDetail?id='+item.id">{{item.title}}</a>
+                        <el-button size="small" type="primary" icon="delete"></el-button>
                         </h3>    
                         <span>{{item.modifyTime}}</span>
                         <p>{{item.content}}</p>
@@ -24,12 +25,12 @@
                         </el-tooltip>
                         <strong v-show="errorFlag">日志标题不能为空，且长度不能超过20个字</strong>
                         <el-form-item label="日志内容" :label-width="formLabelWidth">
-                            <el-input type="textarea" v-model="form.content" placeholder="请输入日志内容">
+                            <el-input type="textarea" rows="15" v-model="form.content" placeholder="请输入日志内容">
                             </el-input>
                         </el-form-item>
                         <el-form-item label="日志类别" :label-width="formLabelWidth">
-                            <el-radio class="radio" v-model="form.groupRadio" label=1>学习</el-radio>
-                            <el-radio class="radio" v-model="form.groupRadio" label=2>工作</el-radio>
+                            <el-radio class="radio" v-model="form.groupRadio" label='1'>学习</el-radio>
+                            <el-radio class="radio" v-model="form.groupRadio" label='2'>工作</el-radio>
                         </el-form-item>
                     </el-form>
                     <div slot="footer" class="dialog-footer">
@@ -66,7 +67,7 @@
                 form:{
                     title:'',
                     content:'',
-                    groupRadio:1,
+                    groupRadio:'1',
                 },
                 formLabelWidth: '120px',
                 errorFlag:false,

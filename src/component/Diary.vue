@@ -8,7 +8,6 @@
                     <li v-for="item in diaries.items">
                         <h3>
                         <a :href="'/diaryDetail?id='+item.id">{{item.title}}</a>
-                        <el-button size="small" type="primary" icon="delete"></el-button>
                         </h3>    
                         <span>{{item.modifyTime}}</span>
                         <p>{{item.content}}</p>

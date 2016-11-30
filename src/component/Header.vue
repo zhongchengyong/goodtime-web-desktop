@@ -9,8 +9,7 @@
     }
     .logout{
         position: absolute;
-        /*padding-left: 75%;*/
-        left: 75%;
+        left: 70%;
         height: 60px;
     }
 </style>
@@ -34,7 +33,12 @@
     export default{
         methods:{
             logout(){
-                window.location.href = '/login'
+                let vm =this;
+                vm.$http.post('goodtime/logout').then((response)=>{
+                    if(response.body.errorCode==0){
+                        window.location.href = '/login';
+                    }
+                })
             }
         }
     }

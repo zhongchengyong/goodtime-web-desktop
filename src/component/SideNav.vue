@@ -2,7 +2,7 @@
     <div class="container">
         <el-row class="tac">
             <el-col :span="24">
-                <el-menu default-active="1" class="el-menu-vertical-demo">
+                <el-menu default-active="1" class="sideNav el-menu-vertical-demo">
                             标签<span class="distance"><el-button type="primary" icon="plus" @click='add'>添加</el-button></span>
                         <!-- 这样也是可以的，属性中使用@click
                             <el-button v-for="i in 2" @click='test'>添加</el-button></span>-->
@@ -24,6 +24,10 @@
 <style>
     .distance {
         padding-left: 45%;
+    }
+    .sideNav{
+        height: 600px;
+        overflow-y: scroll;
     }
 
 </style>

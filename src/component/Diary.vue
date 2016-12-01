@@ -39,7 +39,7 @@
                 </el-dialog>
             </div>
             <div id="task-button">
-                <el-button size="large" type="primary" icon="plus" @click="dialogFormVisible = true"></el-button>
+                <el-button size="large" type="info" icon="plus" @click="dialogFormVisible = true"></el-button>
             </div>
         </div>
     </div>

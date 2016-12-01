@@ -31,6 +31,11 @@
 </template>
 <script>
     export default{
+        data(){
+            return{
+            }
+        },
+
         methods:{
             logout(){
                 let vm =this;

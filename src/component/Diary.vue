@@ -1,14 +1,14 @@
 <template>
     <div>
         <header-nav></header-nav>
-        <side-nav></side-nav>
+        <side-nav v-on:filterTag="queryByTag"></side-nav>
         <div id="diary-container">
             <div>
                 <ul>
                     <li v-for="item in diaries.items">
                         <h3>
-                        <a :href="'/diaryDetail?id='+item.id">{{item.title}}</a>
-                        </h3>    
+                            <a :href="'/diaryDetail?id='+item.id">{{item.title}}</a>
+                        </h3>
                         <span>{{item.modifyTime}}</span>
                         <p>{{item.content}}</p>
                     </li>
@@ -17,7 +17,7 @@
             <div>
                 <el-dialog title="新增日志" v-model="dialogFormVisible">
                     <el-form :model="form">
-                        <el-tooltip  class="item" effect="dark" content="日志标题不能为空，且长度不能超过20个字" placement="bottom">
+                        <el-tooltip class="item" effect="dark" content="日志标题不能为空，且长度不能超过20个字" placement="bottom">
                             <el-form-item label="日志标题" :label-width="formLabelWidth">
                                 <el-input v-model="form.title" auto-complete="off" placeholder="请输入日志标题"></el-input>
                             </el-form-item>
@@ -74,7 +74,7 @@
         },
         methods:{
             query(){
-                let vm = this;
+                let vm = this
                 vm.$http.get(vm.diaryUrl).then((response)=>{
                     vm.diaries.items=response.body.data.items;
                 });
@@ -108,15 +108,29 @@
                 });
             },
             valid_title(){
-                var vm = this;
+                let vm = this;
                 if(vm.form.title.trim() && vm.form.title.trim().length<=20){
                     return true;
                 }
                 return false;
+            },
+            queryByTag(id){
+                let vm = this;
+                vm.$http.get('/goodtime/diary/group/'+id).then((response)=>{
+                    if(response.body.errorCode==0){
+                        vm.diaries.items=response.body.data;
+                    }
+                })
             }
         },
         mounted(){
             let vm = this;
+            vm.$http.get('/goodtime/loginState').then((data)=>{
+                if(data.body.errorCode==401){
+                    window.location.href='/login';
+                    return;
+                }
+            })
             vm.query();
         },
         components:{SideNav,HeaderNav}

@@ -123,3 +123,7 @@ a {
     cursor: pointer;
     font-weight: lighter;
 }
+
+ul {
+  list-style-type: none;
+}

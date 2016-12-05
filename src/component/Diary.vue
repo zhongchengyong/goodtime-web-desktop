@@ -9,7 +9,7 @@
                         <h3>
                             <a :href="'/diaryDetail?id='+item.id">{{item.title}}</a>
                         </h3>
-                        <span>{{item.modifyTime}}</span>
+                        <span class="light">{{item.modifyTime}}</span>
                         <p>{{item.content}}</p>
                     </li>
                 </ul>
@@ -46,6 +46,9 @@
 </template>
 
 <style>
+    .light {
+        font-size: smaller;
+    }
 
 </style>
 

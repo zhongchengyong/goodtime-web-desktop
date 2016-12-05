@@ -109,12 +109,6 @@
         },
         mounted(){
             let vm = this;
-            vm.$http.get('/goodtime/loginState').then((data)=>{
-                if(data.body.errorCode==401){
-                    window.location.href='/login';
-                    return;
-                }
-            })
             vm.query();
         },
         components: {SideNav,HeaderNav}

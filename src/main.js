@@ -65,6 +65,20 @@ const router = new VueRouter({
     ]
 })
 
+router.beforeEach((to,from,next)=>{
+    debugger;
+    if(to.path != '/login'){
+        Vue.http.get('/goodtime/loginState').then((response)=>{
+            console.log(response)
+            if(response.body.errorCode==401){
+                console.log(response)
+                var redirect = encodeURIComponent(to.path);
+                next.redirect('/login?redirect=' + redirect);
+            }
+        })
+    }
+    next()
+})
 
 // 现在我们可以启动应用了！
 // 路由器会创建一个 App 实例，并且挂载到选择符 #app 匹配的元素上。

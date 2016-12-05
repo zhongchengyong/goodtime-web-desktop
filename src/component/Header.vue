@@ -24,6 +24,7 @@
                 <el-menu-item index="2-3">选项3</el-menu-item>
             </el-submenu>
             <el-menu-item index="diary">日志管理</el-menu-item>
+            <el-menu-item index="task">我的任务</el-menu-item>
             <a class=" logout el-menu-item" @click.prevent="logout" title="退出">退出</a>
         </el-menu>
         <div class="line"></div>

@@ -17,7 +17,11 @@ Vue.http.interceptors.push(function(request,next){
     //请求发送前
     next((response)=>{
         if(response.body.errorCode==500){
-            alert('系统错误');
+            // alert('系统错误');
+            Vue.$message({
+                type: 'error',
+                message:'系统错误'
+            })
         }else if(response.body.errorCode==401){
             window.location.href='/login';
         }

@@ -1,7 +1,6 @@
 <template>
     <div>
         <header-nav></header-nav>
-        <side-nav></side-nav>
         <div id="links-container">
             <div>
                 <ul>

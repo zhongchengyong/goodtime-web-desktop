@@ -7,9 +7,9 @@
         background-color: #ffffff;
         height: 60px;
     }
-    .logout{
+    .message,.logout{
         position: absolute;
-        left: 70%;
+        left: 50%;
         height: 60px;
     }
 </style>
@@ -25,6 +25,14 @@
             </el-submenu>
             <el-menu-item index="diary">日志管理</el-menu-item>
             <el-menu-item index="task">我的任务</el-menu-item>
+            <!--<el-badge value="new" class="item">
+                <el-button size="small">消息</el-button>
+            </el-badge>-->
+            <div class="el-badge item">
+                <button type="button" class="el-button el-button--default el-button--small">
+                    <span>评论</span></button>
+                    <sup class="el-badge__content is-fixed">12</sup>
+            </div>
             <a class=" logout el-menu-item" @click.prevent="logout" title="退出">退出</a>
         </el-menu>
         <div class="line"></div>

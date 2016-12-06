@@ -66,7 +66,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next)=>{
-    debugger;
     if(to.path != '/login'){
         Vue.http.get('/goodtime/loginState').then((response)=>{
             console.log(response)

@@ -14,6 +14,7 @@
     import Note from './component/Note.vue'
     import Diary from './component/Diary.vue'
     import DiaryDetail from './component/DiaryDetail.vue'
+    import SysMessage from './component/SysMessage.vue'
 
     export default {
         data () {
@@ -21,7 +22,7 @@
                 msg: 'Hello Vue!'
             }
         },
-        components: {HeaderNav, FooterNav,Note,Diary,DiaryDetail}
+        components: {HeaderNav, FooterNav,Note,Diary,DiaryDetail,SysMessage}
     }
 
 </script>

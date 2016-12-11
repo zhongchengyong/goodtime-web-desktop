@@ -35,6 +35,7 @@ import Note from './component/Note.vue'
 import Login from './component/Login.vue'
 import Diary from './component/Diary.vue'
 import DiaryDetail from './component/DiaryDetail.vue'
+import SysMessage from './component/SysMessage.vue'
 
 // 创建一个路由器实例
 // 并且配置路由规则
@@ -62,6 +63,10 @@ const router = new VueRouter({
             path:'/diaryDetail',
             component: DiaryDetail
         },
+        {
+            path:'/sysMessage',
+            component:SysMessage
+        }
     ]
 })
 

@@ -37,10 +37,10 @@
             </el-submenu>
             <el-menu-item index="diary">日志管理</el-menu-item>
             <el-menu-item index="task">我的任务</el-menu-item>
-            <a class="el-menu-item" @click.prevent="getMessage" title="消息">
+            <router-link to="sysMessage" class="el-menu-item" title="消息">
                 消息
                 <sup class="sup-message" v-show="newMsg">new</sup>
-            </a>
+            </router-link>
             <a class=" logout el-menu-item" @click.prevent="logout" title="退出">退出</a>
         </el-menu>
         <div class="line"></div>
@@ -50,7 +50,7 @@
     export default{
         data(){
             return{
-                newMsg:true,
+                newMsg:false,
             }
         },
 
@@ -65,10 +65,18 @@
             },
             getMessage(){
                 let vm = this;
-                vm.$http.get('goodtime/syssup-Message').then((response)=>{
-                    console.log(response.body.data);
+                vm.$http.get('goodtime/sysMessage/count').then((response)=>{
+                    if(response.body.data>0){
+                        vm.newMsg = true;
+                    }else{
+                        vm.newMsg = false;
+                    }
                 })
             }
+        },
+        mounted(){
+            let vm = this;
+            vm.getMessage();
         }
     }
 </script>
